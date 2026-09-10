@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ nome_barbearia }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ nome_barbearia }}</h1>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+    </nav>
+
+    <hr>
+
+    <p>Total de agendamentos cadastrados: {{ agendamentos|length }}</p>
+</body>
+</html>

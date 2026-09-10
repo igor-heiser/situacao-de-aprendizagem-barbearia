@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Agendamentos - {{ nome_barbearia }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>{{ nome_barbearia }}</h1>
+
+    <nav>
+        <a href="{{ url_for('index') }}">Início</a>
+        <a href="{{ url_for('agendamentos') }}">Agendamentos</a>
+    </nav>
+
+    <hr>
+
+    <h2>Filtrar por status:</h2>
+    <div class="filtros">
+        <a href="{{ url_for('agendamentos_status', status='Agendado') }}">Agendado</a>
+        <a href="{{ url_for('agendamentos_status', status='Concluído') }}">Concluído</a>
+        <a href="{{ url_for('agendamentos_status', status='Cancelado') }}">Cancelado</a>
+        <a href="{{ url_for('agendamentos') }}">Todos</a>
+    </div>
+
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Cliente</th>
+            <th>Serviço</th>
+            <th>Barbeiro</th>
+            <th>Data</th>
+            <th>Horário</th>
+            <th>Status</th>
+            <th>Detalhe</th>
+        </tr>
+        {% for agendamento in agendamentos %}
+            {% if agendamento.status == 'Concluído' %}
+                <tr class="status-concluido">
+            {% elif agendamento.status == 'Cancelado' %}
+                <tr class="status-cancelado">
+            {% else %}
+                <tr>
+            {% endif %}
+                <td>{{ loop.index }}</td>
+                <td>{{ agendamento.cliente }}</td>
+                <td>{{ agendamento.servico }}</td>
+                <td>{{ agendamento.barbeiro }}</td>
+                <td>{{ agendamento.data }}</td>
+                <td>{{ agendamento.horario }}</td>
+                <td>{{ agendamento.status }}</td>
+                <td><a href="{{ url_for('detalhe', id=agendamento.id) }}" class="ver-detalhe">Ver detalhe</a></td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

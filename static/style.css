@@ -1,0 +1,237 @@
+/* style.css — Barbearia Navalha de Ouro
+   Conceito: poste de barbeiro como assinatura visual, caderneta de agendamentos */
+
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Work+Sans:wght@400;500;600&display=swap');
+
+:root {
+    --ink: #20211D;
+    --paper: #EDE7D6;
+    --paper-raised: #F5F0E3;
+    --brass: #A9803F;
+    --brass-dim: #C9AD7B;
+    --pole-red: #8A3324;
+    --pole-blue: #2E4159;
+    --wash-green: #E1E6D6;
+    --wash-red: #EDDAD3;
+    --border: #D8CDAF;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Work Sans', Arial, sans-serif;
+    background-color: var(--paper);
+    color: var(--ink);
+    padding: 48px 40px 48px 64px;
+    position: relative;
+    min-height: 100vh;
+    line-height: 1.5;
+}
+
+/* A faixa do poste de barbeiro: assinatura visual fixa na lateral */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 14px;
+    height: 100%;
+    background: repeating-linear-gradient(
+        45deg,
+        var(--pole-red) 0px, var(--pole-red) 10px,
+        #F5F0E3 10px, #F5F0E3 20px,
+        var(--pole-blue) 20px, var(--pole-blue) 30px,
+        #F5F0E3 30px, #F5F0E3 40px
+    );
+    box-shadow: 2px 0 6px rgba(0,0,0,0.15);
+}
+
+.wrap {
+    max-width: 760px;
+}
+
+h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 2.1rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    border-top: 3px solid var(--ink);
+    border-bottom: 1px solid var(--brass);
+    padding: 10px 0 12px;
+    margin-bottom: 24px;
+}
+
+h2 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: 1.25rem;
+    color: var(--ink);
+    margin: 28px 0 12px;
+}
+
+nav {
+    display: flex;
+    gap: 22px;
+    margin-bottom: 8px;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--pole-red);
+    font-weight: 500;
+    font-size: 0.95rem;
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+nav a:hover,
+nav a:focus-visible {
+    border-bottom-color: var(--pole-red);
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 20px 0 24px;
+}
+
+p {
+    font-size: 0.98rem;
+}
+
+/* Índice de filtros — abas de caderneta, não pílulas genéricas */
+.filtros {
+    display: flex;
+    gap: 4px;
+    margin-bottom: 18px;
+    border-bottom: 1px solid var(--border);
+}
+
+.filtros a {
+    text-decoration: none;
+    color: var(--ink);
+    font-size: 0.92rem;
+    padding: 8px 14px;
+    border: 1px solid var(--border);
+    border-bottom: none;
+    background-color: var(--paper-raised);
+    position: relative;
+    top: 1px;
+}
+
+.filtros a:hover,
+.filtros a:focus-visible {
+    color: var(--pole-red);
+    background-color: rgb(232 222 193 / 0.65);
+}
+
+/* Tabela — caderneta de registros */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: var(--paper-raised);
+}
+
+th, td {
+    padding: 11px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.94rem;
+}
+
+th {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    background-color: var(--ink);
+    color: var(--paper);
+    font-size: 0.88rem;
+}
+
+tr:hover td {
+    background-color: rgb(232 222 193 / 0.65);
+}
+
+/* Status indicado por borda lateral, não pela linha inteira */
+.status-concluido td {
+    background-color: var(--wash-green);
+    border-left: 4px solid #4B6B41;
+}
+.status-concluido td:first-child { border-left: 4px solid #4B6B41; }
+
+.status-cancelado td {
+    background-color: var(--wash-red);
+    border-left: 4px solid var(--pole-red);
+}
+.status-cancelado td:first-child { border-left: 4px solid var(--pole-red); }
+
+table a {
+    color: var(--pole-blue);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pole-blue);
+}
+
+table a:hover { color: var(--pole-red); border-color: var(--pole-red); }
+
+/* Detalhe — recibo com corte tracejado */
+.detalhe {
+    max-width: 420px;
+    background-color: var(--paper-raised);
+    border: 1px solid var(--border);
+    padding: 22px 24px;
+}
+
+.detalhe h2 {
+    margin-top: 0;
+    padding-bottom: 12px;
+    border-bottom: 2px dashed var(--brass-dim);
+}
+
+.detalhe p {
+    display: flex;
+    justify-content: space-between;
+    padding: 7px 0;
+    border-bottom: 1px dotted var(--border);
+}
+
+.detalhe p:last-child { border-bottom: none; }
+
+.detalhe p strong {
+    font-weight: 500;
+    color: #5A5646;
+}
+
+.voltar {
+    display: inline-block;
+    margin-top: 20px;
+    color: var(--pole-blue);
+    font-weight: 500;
+    text-decoration: none;
+    border-bottom: 1px solid var(--pole-blue);
+}
+
+.voltar:hover { color: var(--pole-red); border-color: var(--pole-red); }
+
+/* Responsivo */
+@media (max-width: 600px) {
+    body { padding: 32px 20px 32px 34px; }
+    body::before { width: 10px; }
+    h1 { font-size: 1.6rem; }
+    table, thead, tbody, th, td, tr { display: block; }
+    th { display: none; }
+    tr { margin-bottom: 14px; border: 1px solid var(--border); }
+    td { border-bottom: 1px dotted var(--border); }
+    td:before {
+        content: attr(data-label);
+        font-weight: 600;
+        display: block;
+        font-size: 0.78rem;
+        color: #7A755F;
+    }
+}
