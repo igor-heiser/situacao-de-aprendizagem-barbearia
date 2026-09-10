@@ -69,7 +69,7 @@ barbearia/
 ### ▶ Acesso via deploy (Render)
 O projeto está publicado no Render e pode ser acessado direto pelo link abaixo, sem instalação:
 
-🔗 **[inserir link do deploy no Render]**
+🔗 **https://barbearia-try7.onrender.com/**
 
 ### ▶ Executando localmente
 
