@@ -11,7 +11,7 @@
 
 ---
 
-## 📌 Sobre o projeto
+## Sobre o projeto
 
 A **Barbearia Navalha de Ouro** controlava seus agendamentos em um caderno no balcão, o que causava horários duplicados e dificuldade para localizar clientes e acompanhar os atendimentos.
 
@@ -19,7 +19,7 @@ Este projeto substitui esse controle manual por um **sistema web** que permite l
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+## Tecnologias utilizadas
 
 | Tecnologia | Utilização |
 |---|---|
@@ -32,7 +32,7 @@ Este projeto substitui esse controle manual por um **sistema web** que permite l
 
 ---
 
-## 📁 Estrutura do projeto
+## Estrutura do projeto
 
 ```text
 barbearia/
@@ -53,7 +53,7 @@ barbearia/
 
 ---
 
-## 🌐 Rotas disponíveis
+## Rotas disponíveis
 
 | Rota | Função |
 |---|---|
@@ -64,7 +64,7 @@ barbearia/
 
 ---
 
-## 🚀 Como executar o projeto
+## Como executar o projeto
 
 ### ▶ Acesso via deploy (Render)
 O projeto está publicado no Render e pode ser acessado direto pelo link abaixo, sem instalação:
@@ -91,11 +91,11 @@ python app.py
 
 Depois, acesse: `http://127.0.0.1:5000`
 
-> ⚠️ Antes de rodar, crie o banco `barbearia` no MySQL Workbench, execute o `banco.sql` e ajuste as credenciais em `config.py` para o seu ambiente.
+> Antes de rodar, crie o banco `barbearia` no MySQL Workbench, execute o `banco.sql` e ajuste as credenciais em `config.py` para o seu ambiente.
 
 ---
 
-## 👥 Integrantes
+## Integrantes
 
 - Igor Negherbon Heiser
 - Arthur Pagliarini Martins
